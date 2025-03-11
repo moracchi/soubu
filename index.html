@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>総武線駅ナンバークイズ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- タイトル画面 -->
+    <div id="title-screen" class="screen">
+        <div class="title-container">
+            <img src="images/JB.png" alt="総武線ロゴ" class="title-logo">
+            <h1>総武線駅ナンバークイズ</h1>
+            <p>駅ナンバーを見て、正しい駅名を当てよう！</p>
+            <button id="start-button" class="btn">スタート</button>
+        </div>
+    </div>
+
+    <!-- クイズ画面 -->
+    <div id="quiz-screen" class="screen hidden">
+        <div class="quiz-container">
+            <div class="quiz-header">
+                <div class="progress">問題 <span id="current-question">1</span>/10</div>
+                <div class="score">正解数: <span id="score">0</span></div>
+            </div>
+            <div class="question-container">
+                <img id="station-image" src="" alt="駅ナンバー" class="station-image">
+                <h2>この駅ナンバーは何駅？</h2>
+            </div>
+            <div class="options-container">
+                <button class="option-btn" data-index="0"></button>
+                <button class="option-btn" data-index="1"></button>
+                <button class="option-btn" data-index="2"></button>
+                <button class="option-btn" data-index="3"></button>
+            </div>
+            <div id="result-feedback" class="feedback hidden">
+                <p id="feedback-text"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 結果画面 -->
+    <div id="result-screen" class="screen hidden">
+        <div class="result-container">
+            <img src="images/JB.png" alt="総武線ロゴ" class="result-logo">
+            <h2>クイズ結果</h2>
+            <div class="final-score">
+                <p>10問中 <span id="final-score">0</span> 問正解！</p>
+            </div>
+            <div class="result-message">
+                <p id="result-message"></p>
+            </div>
+            <button id="restart-button" class="btn">もう一度挑戦する</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
