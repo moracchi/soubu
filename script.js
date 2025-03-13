@@ -1,38 +1,44 @@
 // 駅データのリスト
 const stationList = [
-    { id: "JB-01", name: "三鷹（みたか）" },
-    { id: "JB-02", name: "吉祥寺（きちじょうじ）" },
-    { id: "JB-03", name: "西荻窪（にしおぎくぼ）" },
-    { id: "JB-04", name: "荻窪（おぎくぼ）" },
-    { id: "JB-05", name: "阿佐ケ谷（あさがや）" },
-    { id: "JB-06", name: "高円寺（こうえんじ）" },
-    { id: "JB-07", name: "中野（なかの）" },
-    { id: "JB-08", name: "東中野（ひがしなかの）" },
-    { id: "JB-09", name: "大久保（おおくぼ）" },
-    { id: "JB-10", name: "新宿（しんじゅく）" },
-    { id: "JB-11", name: "代々木（よよぎ）" },
-    { id: "JB-12", name: "千駄ケ谷（せんだがや）" },
-    { id: "JB-13", name: "信濃町（しなのまち）" },
-    { id: "JB-14", name: "四ツ谷（よつや）" },
-    { id: "JB-15", name: "市ケ谷（いちがや）" },
-    { id: "JB-16", name: "飯田橋（いいだばし）" },
-    { id: "JB-17", name: "水道橋（すいどうばし）" },
-    { id: "JB-18", name: "御茶ノ水（おちゃのみず）" },
-    { id: "JB-19", name: "秋葉原（あきはばら）" },
-    { id: "JB-20", name: "浅草橋（あさくさばし）" },
-    { id: "JB-21", name: "両国（りょうごく）" },
-    { id: "JB-22", name: "錦糸町（きんしちょう）" },
-    { id: "JB-23", name: "亀戸（かめいど）" },
-    { id: "JB-24", name: "平井（ひらい）" },
-    { id: "JB-25", name: "新小岩（しんこいわ）" },
-    { id: "JB-26", name: "小岩（こいわ）" },
-    { id: "JB-27", name: "市川（いちかわ）" },
-    { id: "JB-28", name: "本八幡（もとやわた）" },
-    { id: "JB-29", name: "下総中山（しもうさなか）" },
-    { id: "JB-30", name: "西船橋（にしふなばし）" },
-    { id: "JB-31", name: "船橋（ふなばし）" },
-    { id: "JB-32", name: "東船橋（ひがしふなばし）" },
-    { id: "JB-33", name: "津田沼（つだぬま）" }
+    { id: "JB-01", name: "三鷹" },
+    { id: "JB-02", name: "吉祥寺" },
+    { id: "JB-03", name: "西荻窪" },
+    { id: "JB-04", name: "荻窪" },
+    { id: "JB-05", name: "阿佐ケ谷" },
+    { id: "JB-06", name: "高円寺" },
+    { id: "JB-07", name: "中野" },
+    { id: "JB-08", name: "東中野" },
+    { id: "JB-09", name: "大久保" },
+    { id: "JB-10", name: "新宿" },
+    { id: "JB-11", name: "代々木" },
+    { id: "JB-12", name: "千駄ケ谷" },
+    { id: "JB-13", name: "信濃町" },
+    { id: "JB-14", name: "四ツ谷" },
+    { id: "JB-15", name: "市ケ谷" },
+    { id: "JB-16", name: "飯田橋" },
+    { id: "JB-17", name: "水道橋" },
+    { id: "JB-18", name: "御茶ノ水" },
+    { id: "JB-19", name: "秋葉原" },
+    { id: "JB-20", name: "浅草橋" },
+    { id: "JB-21", name: "両国" },
+    { id: "JB-22", name: "錦糸町" },
+    { id: "JB-23", name: "亀戸" },
+    { id: "JB-24", name: "平井" },
+    { id: "JB-25", name: "新小岩" },
+    { id: "JB-26", name: "小岩" },
+    { id: "JB-27", name: "市川" },
+    { id: "JB-28", name: "本八幡" },
+    { id: "JB-29", name: "下総中山" },
+    { id: "JB-30", name: "西船橋" },
+    { id: "JB-31", name: "船橋" },
+    { id: "JB-32", name: "東船橋" },
+    { id: "JB-33", name: "津田沼" },
+    { id: "JB-34", name: "幕張本郷" },
+    { id: "JB-35", name: "幕張" },
+    { id: "JB-36", name: "新検見川" },
+    { id: "JB-37", name: "稲毛" },
+    { id: "JB-38", name: "西千葉" },
+    { id: "JB-39", name: "千葉" }
 ];
 
 // ゲーム状態の管理
@@ -176,9 +182,9 @@ function showAnswerEffect(isCorrect) {
         // 正解エフェクト
         createConfetti();
         
-        // サウンドエフェクト（実際の音声ファイルが必要）
-        // const correctSound = new Audio('sounds/correct.mp3');
-        // correctSound.play();
+        // 正解の効果音を再生
+        const correctSound = new Audio('sounds/seikai.mp3');
+        correctSound.play();
     } else {
         // 不正解エフェクト
         document.body.classList.add('shake');
@@ -186,9 +192,9 @@ function showAnswerEffect(isCorrect) {
             document.body.classList.remove('shake');
         }, 500);
         
-        // サウンドエフェクト（実際の音声ファイルが必要）
-        // const incorrectSound = new Audio('sounds/incorrect.mp3');
-        // incorrectSound.play();
+        // 不正解の効果音を再生
+        const incorrectSound = new Audio('sounds/fuseikai.mp3');
+        incorrectSound.play();
     }
 }
 
